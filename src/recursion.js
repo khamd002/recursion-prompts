@@ -123,12 +123,20 @@ var reverse = function(string) {
     return reversed;
   }
   reversed += string[string.length - 1];
-  console.log(reversed);
   return reversed + reverse(string.slice(0, string.length - 1));
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  string = string.toLowerCase();
+  var len = string.length;
+  if (len === 1 || len === 0) {
+    return true;
+  }
+  if (string[0] !== string[len - 1]) {
+    return false;
+  }
+  return palindrome(string.slice(1, len - 1));
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
